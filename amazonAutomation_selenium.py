@@ -7,6 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.keys import Keys
 
+
 def is_exist(xpath):
     try:
         browser.find_element_by_xpath(xpath)
@@ -32,7 +33,6 @@ current_url=browser.current_url
 time.sleep(2)
         
 #assert current page is homepage
-
 if base_url==current_url:
     print("görüntülenen sayfa ",current_url)
 else:
