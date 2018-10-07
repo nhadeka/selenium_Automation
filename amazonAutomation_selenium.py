@@ -7,7 +7,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.keys import Keys
 
-
 def is_exist(xpath):
     try:
         browser.find_element_by_xpath(xpath)
@@ -15,10 +14,8 @@ def is_exist(xpath):
         return False
     return True
 
-
 def hover(driver,element):
     ActionChains(driver).move_to_element(element).perform()
-
 
 
 #STEP 1
@@ -33,9 +30,7 @@ browser.get(base_url)
 browser.maximize_window()
 current_url=browser.current_url
 time.sleep(2)
-
-   
-     
+        
 #assert current page is homepage
 
 if base_url==current_url:
@@ -54,8 +49,6 @@ account_list = browser.find_element_by_xpath('//*[@id="nav-link-accountList"]')
 
 hover(browser,account_list)
 
-
-
 sign_in = None
 while not sign_in:
     try:
@@ -66,8 +59,6 @@ while not sign_in:
 hover(browser,sign_in)
 time.sleep(3)
 sign_in.click()
-
-
 
 email = browser.find_element_by_name("email")
 email.send_keys("") # you have to write email address for amazon account
@@ -84,8 +75,6 @@ remember.click()
 
 sign_in_submit = browser.find_element_by_id("signInSubmit")
 sign_in_submit.click()
-
-
 
 
 #step 2.5 vertification code page 
@@ -105,7 +94,6 @@ else:
     
     browser.switch_to_window(tab_window)
 
-
 #enter email
     email_textbox=browser.find_element_by_name("loginfmt")
     email_textbox.click()
@@ -117,7 +105,6 @@ else:
     password_textbox.send_keys("") # you have to write password
     time.sleep(2)
 #login to my account
-
     login_email = None
     while not login_email:
         try:
@@ -142,9 +129,7 @@ else:
     time.sleep(3)
     verify.send_keys(Keys.ENTER)   
 
-
     
-
 #STEP 3
 print("step 3")
 
@@ -186,10 +171,6 @@ time.sleep(3)
 product3.click()
 time.sleep(2)
 
-
-
-
-
 #click dropdown
 dropdown = None
 while not dropdown:
@@ -200,8 +181,6 @@ while not dropdown:
 
 dropdown.click()
 time.sleep(4)
-
-
 
 #add to wish
 add_to_wishlist = None
@@ -216,12 +195,10 @@ time.sleep(4)
 add_to_wishlist.click()
 time.sleep(2)
 
-
-
 browser.get(base_url)
 
-
 time.sleep(3)
+
 
 #STEP 7
 print("step 7")
@@ -250,7 +227,6 @@ print("step 8")
 time.sleep(4)
 
 #check if it is added to wishlist (note:be more spesific)
-
 if is_exist('//*[@id="no-items-section"]'):
     print("listeye eklenemedi...")
 else:
@@ -277,18 +253,12 @@ if is_exist('//*[@id="no-items-section"]'):
 else:
     print("listeden silinemedi")
 
-
 time.sleep(5)
 browser.quit()
 
 
 
     
-
-
-
-
-
 
 
 
